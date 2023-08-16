@@ -1,0 +1,91 @@
+
+/* Main styles */
+
+body {
+    font-size: 20px;
+}
+
+h1 {
+    font-size: 2.2rem;
+    color: #999999;
+    padding: 24px 0px 24px 0px;
+}
+  
+h2 {
+    font-size: 1.5rem;
+    color: #666666;
+    padding: 12px 0px 12px 0px;
+    display: flex;
+    justify-content: center;
+}
+
+p {
+    font-size: 1rem;
+    text-align: left;
+    line-height: 150%;
+}
+
+/* Main section */
+
+.main-section {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Main card */
+
+.card {
+    padding: 40px;
+    background-color: #ececec;
+    width: 480px;
+}
+
+/* Status display (counter) */
+
+.status-display {
+    color: #666666;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: center;
+    gap: 4px;
+}
+
+#counter {
+    font-weight: 600;
+}
+
+/*
+#totalnumber {
+}
+*/
+
+/* Q&A */
+
+#button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+button {
+    padding: 12px 24px 12px 24px;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #d8d8d8;
+    border-color: none;
+    box-shadow: none;
+    font: inherit;
+}
+
+/* on hover, turn the background gray */
+.button:hover {
+    background-color: #aaaaaa;
+    cursor: pointer;
+}
+
+
+
