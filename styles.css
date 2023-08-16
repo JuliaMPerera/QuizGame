@@ -1,4 +1,17 @@
 
+/* Index.html button */
+
+#enterButton {
+    padding: 12px 24px 12px 24px;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #d8d8d8;
+    border-color: none;
+    box-shadow: none;
+    font: inherit;
+    cursor: pointer;
+}
+
 /* Main styles */
 
 body {
@@ -27,7 +40,7 @@ p {
 
 /* Main section */
 
-.main-section {
+.section {
     width: 100%;
     display: flex;
     align-items: center;
@@ -37,6 +50,7 @@ p {
 /* Main card */
 
 .card {
+    /* background-image: img("../images/image") */
     padding: 40px;
     background-color: #ececec;
     width: 480px;
@@ -84,6 +98,16 @@ button {
 /* on hover, turn the background gray */
 .button:hover {
     background-color: #aaaaaa;
+    cursor: pointer;
+}
+
+.button:correct {
+    background-color: limegreen;
+    cursor: pointer;
+}
+
+.button:false {
+    background-color: red;
     cursor: pointer;
 }
 
