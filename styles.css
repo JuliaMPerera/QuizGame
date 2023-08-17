@@ -85,7 +85,7 @@ p {
     gap: 12px;
 }
 
-button {
+.button {
     padding: 12px 24px 12px 24px;
     margin: 0;
     box-sizing: border-box;

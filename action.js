@@ -88,60 +88,91 @@ let questionsArray = [
 
 
 
-/* For each item 0-7 of the array, do this */
-questionsArray.forEach(function (currentValue) {
+let buttonGroup = document.querySelector('#button-group').children;
+/* Create array out of the live collection */
+let buttonsArray = [...buttonGroup];
 
-    /* --> Add 1 to the counter element inside the status display */
-    let counterValue = parseInt(document.getElementById('counter').textContent);
-    counterValue++;
-    document.getElementById('counter').textContent = counterValue;
+let h2 = document.querySelector('h2');
 
-    /* --> Create a Question (value of h2) */
-    let h2 = document.querySelector('h2');
-    h2.textContent = currentValue.question;
+let currentIndex = 0;
+let currentCardContent = questionsArray[currentIndex];
 
-    /* --> Create 4 buttons & populate them with answers */
+displayCardContent();
 
-    /* For each item in the answers array... */
-    currentValue.answers.forEach(function (currentAnswer) {
+/* --> Add 1 to the counter element inside the status display */
+let counterValue = parseInt(document.getElementById('counter').textContent);
+counterValue++;
+document.getElementById('counter').textContent = counterValue;
 
-        /* --> create new button & add it to the button group in the HTML & remove buttons */
-        let button = document.createElement('button');
-        button.textContent = currentAnswer.answer;
-        button.classList.add('button');
-        let buttonGroup = document.getElementById('button-group').appendChild(button);
 
-        /* --> make button react to actions */
-        button.addEventListener('click', function () {
-            /* If answer was clicked, turn green */
-            if (currentAnswer.isCorrect) {
-                button.classList.add('correct');
-                /* disable all that are incorrect */
-                document.querySelectorAll('.button').forEach(function (button) {
-                    if (!currentAnswer.isCorrect) {
-                        button.disabled = true;
-                    };
-                });
-            };
 
-            /* If other was clicked, turn red */
-            else {
-                button.classList.add('false');
-                button.forEach(function (oneButton) {
-                    if (oneButton.classList !== 'false') {
-                        oneButton.disabled = true;
-                    };
-                });
-            }
-            
-            /* After 4 seconds, reset buttons & new question*/
-            setTimeout(function () {
-                document.querySelectorAll('.button').forEach(function (btn) {
-                    btn.classList.remove('correct', 'false');
-                    btn.disabled = false;
-                    buttonGroup.innerHTML = '';
-                });    
-            }, 4000);
-        });
+/* Display Q & one set of As */
+
+function displayCardContent() {
+    h2.textContent = currentCardContent.question;
+
+    /* For each answer row inside the current object... */
+    currentCardContent.answers.forEach(function (answer, index) {
+        /* Into each button, put the answer with the same index */
+        let currentAnswer = currentCardContent.answers[index];
+        buttonsArray[index].textContent = answer.answer;
     });
-});
+}
+
+
+
+// /* For each item 0-7 of the array, do this */
+// questionsArray.forEach(function (currentValue) {
+  
+//     /* --> Add 1 to the counter element inside the status display */
+//     let counterValue = parseInt(document.getElementById('counter').textContent);
+//     counterValue++;
+//     document.getElementById('counter').textContent = counterValue;
+
+//     /* --> Create 4 buttons & populate them with answers */
+
+//     /* For each item in the answers array... */
+//     currentValue.answers.forEach(function (currentAnswer) {
+
+//         /* --> create new text for the buttons in the HTML */
+//         button.textContent = currentAnswer.answer;
+//         button.classList.add('button');
+//         let buttonGroup = document.getElementById('button-group');
+//         buttonGroup.appendChild(button);
+
+//         /* --> make button react to actions */
+//         button.addEventListener('click', function () {
+//             /* If answer was clicked, turn green */
+//             if (currentAnswer.isCorrect) {
+//                 button.classList.add('correct');
+//                 /* disable all that are incorrect */
+//                 document.querySelectorAll('.button').forEach(function (button) {
+//                     if (!currentAnswer.isCorrect) {
+//                         button.disabled = true;
+//                     };
+//                 });
+//             }
+
+//             /* If other was clicked, turn red */
+//             else {
+//                 button.classList.add('false');
+//                 button.forEach(function (oneButton) {
+//                     if (oneButton.classList !== 'false') {
+//                         oneButton.disabled = true;
+//                     };
+//                 });
+//             }
+            
+//             /* After 4 seconds, reset buttons & new question*/
+//             setTimeout(function () {
+//                 document.querySelectorAll('.button').forEach(function (btn) {
+//                     btn.classList.remove('correct', 'false');
+//                     btn.disabled = false;
+//                     buttonGroup.innerHTML = '';
+//                     currentIndex++
+//                     currentQuestion[currentIndex]
+//                 });    
+//             }, 4000);
+//         });
+//     });
+// });
