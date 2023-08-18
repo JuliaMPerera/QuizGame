@@ -2,7 +2,7 @@
 /* Main font size = 1rem */
 
 html {
-    font-size: 28px;
+    font-size: 24px;
 }
 
 body, html {
@@ -309,7 +309,7 @@ p {
     border-width: 4px;
     box-shadow: none;
     width: 100%;
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-family: 'VT323', monospace;
 }
 
