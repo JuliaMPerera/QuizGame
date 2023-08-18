@@ -119,9 +119,10 @@ window.addEventListener("load", () => {
             button.addEventListener('click', function () {
                 /* If right answer was clicked... */
                 if (button.getAttribute('is-correct') === 'true') {
-                    /* style as correct & add one to totalPoints */
+                    /* style as correct */
                     button.classList.add('correct');
-                    // totalPoints ();
+                    /* activate totalPoints function (see below) */
+                    // addPointToScore ();
 
                 }
                 /* If other was clicked, turn red */
@@ -155,4 +156,15 @@ window.addEventListener("load", () => {
             });
         });
 })
+
+
+/* totalPoints function; totalPoints accumulating on the finish page */
+// function addPointToScore () {
+//     totalPoints++
+//     let totalPointsSpan = localStorage.getItem("total-points");
+//     if (totalPointsSpan) {
+//         let totalPointsValue = localStorage.getItem("total-points");
+//         totalPointsSpan.textContent = totalPointsValue
+//     }
+// }
 
