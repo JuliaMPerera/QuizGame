@@ -1,20 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="./styles.css">
-</head>
-<body>
-    <section class="section">
-        <h1> Quiz Game </h1>
-        <p> Test your knowledge of cybersecurity. Let's go! </p>
-        <a href="./questions.html">
-            <button id="enterButton" type="button">Start now</button>
-        </a>
-    </section>
 
-    <script src="./action.js"></script>
-</body>
-</html>
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" type="text/css" href="./styles.css">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+        </style>
+    </head>
+    <body>
+    
+        <!-- Centering things-->
+        <section class="section">
+            <!-- Background-->
+            <video autoplay loop muted playsinline class="video">
+                <source src="./images/pexels-nikita-ryumshin-10994870 (1080p).mp4" type="video/mp4">
+            </video>
+    
+            <!-- Main Quiz card-->
+            <div class="flex-group">
+                <h1> Cybersecurity Expert </h1>
+                <div class="card-if pixel-corners">
+                    <div class="flex-group">
+                        <p> Test your knowledge of cybersecurity. Let's go! </p>
+                        <a href="./questions.html">
+                            <button class="button" type="button">Start</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+    
+        </section>
+        
+        <script src="./action.js"></script>
+    </body>
+    </html>

@@ -5,28 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="./styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+    </style>
 </head>
 <body>
 
     <!-- Centering things-->
     <section class="section">
+        <!-- Background-->
+        <video autoplay loop muted playsinline class="video">
+            <source src="./images/pexels-nikita-ryumshin-10994870 (1080p).mp4" type="video/mp4">
+        </video>
 
         <!-- Main Quiz card-->
-        <h1> Quiz Game </h1>
-        <div class="card">
+        <div class="card pixel-corners">
 
-            <!-- Counter -->
+            <!-- Q&A -->
+            <div class="flex-group">
+                <h2> What does "Phishing" refer to? </h2>
+                <div id="button-group">
+                    <button class="button pixel-border" is-correct=""></button>
+                    <button class="button pixel-border" is-correct=""></button>
+                    <button class="button pixel-border" is-correct=""></button>
+                    <button class="button pixel-border" is-correct=""></button>
+                </div>
+            </div>
+
+            <!-- Status row (wrapper around counter & descriptions) -->
+            <div class="status-row">
+                <!-- Description -->
+                <p  class="status-display"> Cybersecurity </p>
+                <div id="separator"></div>
+                <!-- Counter -->
                 <p  class="status-display">
                     <span id="counter"> 0 </span> / <span id="totalnumber"> 8 </span> 
                 </p>
-
-            <!-- Q&A -->
-            <h2> What does "Phishing" refer to? </h2>
-            <div id="button-group">
-                <button class="button" isCorrect=""></button>
-                <button class="button" isCorrect=""></button>
-                <button class="button" isCorrect=""></button>
-                <button class="button" isCorrect=""></button>
+                <div id="separator"></div>
+                <!-- Description -->
+                <p  class="status-display"> Expert Quiz </p>
             </div>
 
         </div>
