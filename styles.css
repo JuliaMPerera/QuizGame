@@ -339,9 +339,14 @@ a {
 
 /* ipad breakpoint */
 @media (min-width: 431px) and (max-width: 800px) {
-    .card {
+    .card, h1 {
         padding: 1.25rem 1.25rem 1rem 1.25rem;;
         width: 88vw;
+        box-sizing: border-box;
+    }
+    .card-if {
+        padding: 1.25rem 1.25rem 1rem 1.25rem;;
+        width: 80vw;
         box-sizing: border-box;
     }
 }
@@ -351,7 +356,7 @@ a {
     .section {
         overflow-y: auto;
     }
-    .card {
+    .card, .card-if {
         padding: 1rem;
         margin: 1rem;
         width: 88vw;
@@ -382,5 +387,8 @@ a {
     .status-row {
     flex-direction: column;
     gap: 0rem;
+    }
+    .status-display {
+        line-height: 100%;
     }
 }
