@@ -151,6 +151,9 @@ if (buttonGroup) {
                                 btn.disabled = false;
                             });
                             document.getElementById('counter').textContent++
+
+                            // scroll to the top when a new question is loaded
+                            document.querySelector('.section').scrollIntoView({ behavior: 'smooth', block: 'start' });
                         }
                         else {
                             window.location.href = "./finish.html";
