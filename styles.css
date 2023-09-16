@@ -275,8 +275,9 @@ p {
 
 #final-score {
     background-color: white;
-    padding-left: 0.25rem;
-    padding-right: 0.25rem;
+    padding-top: 0.2rem;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
     margin-bottom: 1rem;
 }
 

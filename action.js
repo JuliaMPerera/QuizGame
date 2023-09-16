@@ -76,95 +76,95 @@ let questionsArray = [
 
 
 
-let buttonGroup = document.querySelector('#button-group').children;
-/* Create array out of the live collection */
-let buttonsArray = [...buttonGroup];
+let buttonGroup = document.querySelector('#button-group');
+if (buttonGroup) {
+    buttonGroup = buttonGroup.children;
 
-/* Reference h2 */
-let h2 = document.querySelector('h2');
-/* Set start Index */
-let currentIndex = 0;
-/* Reference card content */
-let currentCardContent = questionsArray[currentIndex];
+    /* Create array out of the live collection */
+    let buttonsArray = [...buttonGroup];
 
-let totalPoints = 0;
+    /* Reference h2 */
+    let h2 = document.querySelector('h2');
+    /* Set start Index */
+    let currentIndex = 0;
+    /* Reference card content */
+    let currentCardContent = questionsArray[currentIndex];
 
-/* Run function */
-displayCardContent();
+    let totalPoints = 0;
 
-
-///* --> Initial Counter *///
-/* Take the current index, add 1 and display it in counter */
-document.getElementById('counter').textContent = currentIndex + 1;
+    /* Run function */
+    displayCardContent();
 
 
-///* --> Display Q & one set of As *///
-function displayCardContent() {
-    h2.textContent = currentCardContent.question;
+    ///* --> Initial Counter *///
+    /* Take the current index, add 1 and display it in counter */
+    document.getElementById('counter').textContent = currentIndex + 1;
 
-    /* For each answer row inside the current object... */
-    currentCardContent.answers.forEach(function (answer, index) {
-        /* Into each button, put the answer with the same index */
-        let currentButton = buttonsArray[index];
-        currentButton.textContent = answer.answer;
-        /* Into each button, insert the correstponding isCorrect */
-        currentButton.setAttribute('is-correct', answer.isCorrect);
-    });
-};
 
-window.addEventListener("load", () => {
-    if (buttonsArray)
-        buttonsArray.forEach(function (button) {
-            /* Register when user clicks */
-            button.addEventListener('click', function () {
-                /* If right answer was clicked... */
-                if (button.getAttribute('is-correct') === 'true') {
-                    /* style as correct */
-                    button.classList.add('correct');
-                    /* activate totalPoints function (see below) */
-                    // addPointToScore ();
+    ///* --> Display Q & one set of As *///
+    function displayCardContent() {
+        h2.textContent = currentCardContent.question;
 
-                }
-                /* If other was clicked, turn red */
-                else {
-                    button.classList.add('false');
+        /* For each answer row inside the current object... */
+        currentCardContent.answers.forEach(function (answer, index) {
+            /* Into each button, put the answer with the same index */
+            let currentButton = buttonsArray[index];
+            currentButton.textContent = answer.answer;
+            /* Into each button, insert the correstponding isCorrect */
+            currentButton.setAttribute('is-correct', answer.isCorrect);
+        });
+    };
 
-                };
-                /* For each button that hasn't been clicked, turn disabled */
-                buttonsArray.forEach(function (btn) {
-                    if (btn != button) {
-                        btn.disabled = true;
+    window.addEventListener("load", () => {
+        if (buttonsArray)
+            buttonsArray.forEach(function (button) {
+                /* Register when user clicks */
+                button.addEventListener('click', function () {
+                    /* If right answer was clicked... */
+                    if (button.getAttribute('is-correct') === 'true') {
+                        /* style as correct */
+                        button.classList.add('correct');
+                        /* activate totalPoints function (see below) */
+                        addPointToScore();
+
+                    }
+                    /* If other was clicked, turn red */
+                    else {
+                        button.classList.add('false');
 
                     };
+                    /* For each button that hasn't been clicked, turn disabled */
+                    buttonsArray.forEach(function (btn) {
+                        if (btn != button) {
+                            btn.disabled = true;
+
+                        };
+                    });
+                    /* After 4 seconds, populate with new Qs, reset button styles, update counter */
+                    setTimeout(() => {
+                        currentIndex++
+                        if (currentIndex < questionsArray.length) {
+                            currentCardContent = questionsArray[currentIndex];
+                            displayCardContent();
+                            buttonsArray.forEach(function (btn) {
+                                btn.classList.remove('correct', 'false');
+                                btn.disabled = false;
+                            });
+                            document.getElementById('counter').textContent++
+                        }
+                        else {
+                            window.location.href = "./finish.html";
+                        }
+                    }, 2800)
                 });
-                /* After 4 seconds, populate with new Qs, reset button styles, update counter */
-                setTimeout(() => {
-                    currentIndex++
-                    if (currentIndex < questionsArray.length) {
-                        currentCardContent = questionsArray[currentIndex];
-                        displayCardContent();
-                        buttonsArray.forEach(function (btn) {
-                            btn.classList.remove('correct', 'false');
-                            btn.disabled = false;
-                        });
-                        document.getElementById('counter').textContent++
-                    }
-                    else {
-                        window.location.href = "./finish.html";
-                    }
-                }, 2800)
             });
-        });
-})
+    })
 
 
-/* totalPoints function; totalPoints accumulating on the finish page */
-// function addPointToScore () {
-//     totalPoints++
-//     let totalPointsSpan = localStorage.getItem("total-points");
-//     if (totalPointsSpan) {
-//         let totalPointsValue = localStorage.getItem("total-points");
-//         totalPointsSpan.textContent = totalPointsValue
-//     }
-// }
-
+    /* totalPoints function; totalPoints accumulating on the finish page */
+    function addPointToScore() {
+        totalPoints++;
+        localStorage.setItem("total-points", totalPoints);
+    }
+    
+}

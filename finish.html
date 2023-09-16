@@ -31,7 +31,7 @@
                         <!-- Counter -->
                         <div id="final-score">
                             <p>
-                                <span id="total-points"> 5 </span> / <span> 8 </span>
+                                <span id="total-points"> 0 </span> / <span> 8 </span>
                             </p>
                         </div>
                     </div>
@@ -43,6 +43,20 @@
         </div>
 
     </section>
+    
+
+    <!-- Script to update points -->
+    <script>
+        // When page is fully loaded...
+        window.addEventListener("load", () => {
+            // Retrieve the total points item from local storage.
+            const totalPoints = localStorage.getItem("total-points") || "0";
+            // Set the text content of the element to the retrieved total points value
+            document.getElementById("total-points").textContent = totalPoints;
+            // Reset the score for the next game
+            localStorage.removeItem("total-points");
+        });
+    </script>
     
     <script src="./action.js"></script>
 </body>
