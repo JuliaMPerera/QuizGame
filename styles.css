@@ -395,7 +395,7 @@ a {
         color: black;
     } 
     .button:hover {
-        background-color: unset;
+        background-color: #c8c8c8;;
         cursor: default;
     }
     .pixel-corners::after {
