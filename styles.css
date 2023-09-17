@@ -307,6 +307,7 @@ p {
     margin: 0;
     box-sizing: border-box;
     background-color: #c8c8c8;
+    color: #181818;
     border-width: 4px;
     box-shadow: none;
     width: 100%;
@@ -318,7 +319,7 @@ a {
     width: 100%;
 }
 
-/* on hover, turn the background gray */
+/* on hover, turn the background darker */
 .button:hover {
     background-color: #aaaaaa;
     cursor: pointer;
