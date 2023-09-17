@@ -391,8 +391,13 @@ a {
         line-height: 125%;
     }
     .button {
+        color: black;
         padding: 0.75rem;
-    }  
+    } 
+    .button:hover {
+        background-color: unset;
+        cursor: default;
+    }
     .pixel-corners::after {
         margin: -12px;
     } 
