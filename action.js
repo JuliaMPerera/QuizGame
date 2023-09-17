@@ -77,32 +77,31 @@ let questionsArray = [
 
 
 let buttonGroup = document.querySelector('#button-group');
+let buttonsArray;
+let currentIndex;
+let totalPoints;
+
 if (buttonGroup) {
     buttonGroup = buttonGroup.children;
 
     /* Create array out of the live collection */
-    let buttonsArray = [...buttonGroup];
+    buttonsArray = [...buttonGroup];
+    /* Set total points to 0 */
+    totalPoints = 0;
 
-    /* Reference h2 */
-    let h2 = document.querySelector('h2');
-    /* Set start Index */
-    let currentIndex = 0;
+    // /* Set start Index */
+    currentIndex = 0;
+
     /* Reference card content */
     let currentCardContent = questionsArray[currentIndex];
 
-    let totalPoints = 0;
+    //* --> Display Q & one set of As *//
+    function displayCardContent(index) {
+        /* Update reference to currentCardContent */
+        currentCardContent = questionsArray[index];
 
-    /* Run function */
-    displayCardContent();
-
-
-    ///* --> Initial Counter *///
-    /* Take the current index, add 1 and display it in counter */
-    document.getElementById('counter').textContent = currentIndex + 1;
-
-
-    ///* --> Display Q & one set of As *///
-    function displayCardContent() {
+        /* Reference h2 */
+        let h2 = document.querySelector('h2');
         h2.textContent = currentCardContent.question;
 
         /* For each answer row inside the current object... */
@@ -115,8 +114,11 @@ if (buttonGroup) {
         });
     };
 
+    /* Run function */
+    displayCardContent(currentIndex);
+
     window.addEventListener("load", () => {
-        if (buttonsArray)
+        if (buttonsArray.length > 0)
             buttonsArray.forEach(function (button) {
                 /* Register when user clicks */
                 button.addEventListener('click', function () {
@@ -144,8 +146,7 @@ if (buttonGroup) {
                     setTimeout(() => {
                         currentIndex++
                         if (currentIndex < questionsArray.length) {
-                            currentCardContent = questionsArray[currentIndex];
-                            displayCardContent();
+                            displayCardContent(currentIndex);
                             buttonsArray.forEach(function (btn) {
                                 btn.classList.remove('correct', 'false');
                                 btn.disabled = false;
@@ -169,5 +170,5 @@ if (buttonGroup) {
         totalPoints++;
         localStorage.setItem("total-points", totalPoints);
     }
-    
+
 }
