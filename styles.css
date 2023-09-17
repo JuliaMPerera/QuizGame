@@ -356,7 +356,9 @@ a {
         overflow-y: auto;
         box-sizing: border-box;
     }
-
+    .button:hover {
+        background-color: #c8c8c8;
+    }
     .card, h1 {
         padding: 1.25rem 1.25rem 1rem 1.25rem;
         margin: 1.5rem;
