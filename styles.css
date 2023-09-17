@@ -341,16 +341,32 @@ a {
     cursor: pointer;
 }
 
-
 /* ipad breakpoint */
 @media (min-width: 431px) and (max-width: 800px) {
+    body, html {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        overflow: auto;
+    }
+    .section {
+        width: 100%;
+        height: auto;
+        min-height: 100vh;
+        overflow-y: auto;
+        box-sizing: border-box;
+    }
+    .section #index {
+        height: 100vh;
+    }
     .card, h1 {
-        padding: 1.25rem 1.25rem 1rem 1.25rem;;
+        padding: 1.25rem 1.25rem 1rem 1.25rem;
+        margin: 1.5rem;
         width: 88vw;
         box-sizing: border-box;
     }
     .card-if {
-        padding: 1.25rem 1.25rem 1rem 1.25rem;;
+        padding: 1.25rem 1.25rem 1rem 1.25rem;
         width: 80vw;
         box-sizing: border-box;
     }
@@ -365,12 +381,14 @@ a {
         overflow: auto;
     }
     .section {
-        position: relative;
         width: 100%;
         height: auto;
         min-height: 100vh;
         overflow-y: auto;
         box-sizing: border-box;
+    }
+    .section #index {
+        height: 100vh;
     }
     .card, .card-if {
         width: calc(100% - 2rem);
