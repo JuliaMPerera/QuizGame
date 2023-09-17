@@ -394,10 +394,6 @@ a {
         padding: 0.75rem;
         color: black;
     } 
-    .button:hover {
-        background-color: unset;
-        cursor: default;
-    }
     .pixel-corners::after {
         margin: -12px;
     } 
